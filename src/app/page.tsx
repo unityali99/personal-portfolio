@@ -3,32 +3,38 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-row justify-around">
+    <main className="-z-10 flex flex-row justify-around items-end -translate-y-28">
       <VStack align={"start"} className="space-y-5">
         <Box className="space-y-3">
-          <Text className="text-6xl">{"I'm Ali Ahmadi"}</Text>
-          <Text className="text-xl font-light">
+          <Text className="xl:text-8xl">
+            {"I'm Ali"}
+            <br />
+            {" Ahmadi"}
+          </Text>
+          <Text className="xl:text-2xl font-light">
             {"Node.js Web Developer - React.js & React Native"}
           </Text>
         </Box>
         <Box
           as="button"
           color={"white"}
-          bg={"blueviolet"}
-          py={3}
-          px={7}
-          className="rounded-md mx-auto"
+          py={4}
+          px={16}
+          className="rounded-md mx-auto xl:text-xl bg-gradient-to-b from-cyan-500 from-10% to-90% to-blue-800"
         >
           Download CV
         </Box>
       </VStack>
-      <Image
-        alt="me"
-        src={"/216259.jpg"}
-        width={400}
-        height={100}
-        className="-translate-y-28 -z-10"
-      />
+      <Box className="relative w-4/12" style={{ height: "35rem" }}>
+        <Image
+          alt="me"
+          src={"/me.jpg"}
+          fill
+          objectFit="cover"
+          quality={100}
+          className="rounded-lg h-96"
+        />
+      </Box>
     </main>
   );
 }

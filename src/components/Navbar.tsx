@@ -13,12 +13,12 @@ function Navbar() {
   const [menuExpanded, setMenuExpanded] = useState(false);
 
   return (
-    <header className="space-y-5">
+    <header className="space-y-5 relative z-30">
       <Box className="flex flex-col sm:flex-row justify-between items-center bg-transparent space-y-3 sm:space-y-0">
         <h2 className={`${alex_brush.className} text-4xl`}>Ali Ahmadi</h2>
         <Flex
           display={{ base: "none", md: "flex" }}
-          className="text-lg w-72"
+          className="text-lg w-72 stroke-slate-950 text drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
           flexDir={"row"}
           justifyContent={"space-between"}
         >
