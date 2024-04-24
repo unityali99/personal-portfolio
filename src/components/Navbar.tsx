@@ -1,13 +1,11 @@
 "use client";
 import { Box, Flex, IconButton } from "@chakra-ui/react";
-import { Alex_Brush } from "next/font/google";
 import Link from "next/link";
 import React, { useState } from "react";
 import NavbarMenu from "./NavbarMenu";
 import { IoMdClose } from "react-icons/io";
 import { CiMenuBurger } from "react-icons/ci";
-
-const alex_brush = Alex_Brush({ subsets: ["latin"], weight: "400" });
+import { alex_brush } from "@/utils/fonts";
 
 function Navbar() {
   const [menuExpanded, setMenuExpanded] = useState(false);
