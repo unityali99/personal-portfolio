@@ -1,8 +1,18 @@
 import DownloadButton from "@/components/DownloadButton";
 import MainPicture from "@/components/MainPicture";
 import Title from "@/components/Title";
+import { backgroundColor } from "@/theme";
 import { about } from "@/utils/about";
-import { Box, Center, Flex, Text, VStack } from "@chakra-ui/react";
+import { skills } from "@/utils/skills";
+import {
+  Box,
+  Center,
+  CircularProgress,
+  CircularProgressLabel,
+  Flex,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import Image from "next/image";
 
 export default function Home() {
@@ -45,80 +55,30 @@ export default function Home() {
       <Center my={20}>
         <Title>Skills</Title>
       </Center>
-      <Box className="overflow-x-scroll ">
+      <Box className="overflow-x-scroll">
         <Box
-          className="flex flex-row justify-between h-96 mx-0 px-0"
+          className="flex flex-row justify-between"
           style={{ width: "200%" }}
         >
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
-
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
-
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
-
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
-
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
-
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
-
-          <Box className="w-72 h-72 rounded-full relative bg-gradient-to-t from-gradientStart to-gradientEnd overflow-ellipsis">
-            <Box className="w-4/5 h-4/5 m-0 absolute top-5 left-80 rounded-tl-full -translate-x-1/2 -translate-y-1/2 bg-dark "></Box>
-            <Box className="w-4/5 h-4/5 rounded-full m-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark flex items-center justify-center">
-              <Text className="text-6xl">80%</Text>
-            </Box>
-            <Text className="absolute -bottom-16 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl">
-              Javascript
-            </Text>
-          </Box>
+          {skills.map((skill, index) => (
+            <CircularProgress
+              color={`${skill.color ? skill.color : "blue.400"}`}
+              key={index}
+              value={skill.value}
+              valueText="Javascript"
+              size="350px"
+              thickness="7px"
+              trackColor={backgroundColor}
+            >
+              <CircularProgressLabel
+                w={"75%"}
+                fontSize={"x-large"}
+                whiteSpace={"break-spaces"}
+              >
+                {skill.title}
+              </CircularProgressLabel>
+            </CircularProgress>
+          ))}
         </Box>
       </Box>
     </Box>

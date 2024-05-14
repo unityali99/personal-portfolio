@@ -8,3 +8,5 @@ const config: ThemeConfig = {
 const theme = extendTheme({ config });
 
 export default theme;
+
+export const backgroundColor = "#1a202c";
