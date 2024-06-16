@@ -1,3 +1,5 @@
+"use client";
+
 import DownloadButton from "@/components/DownloadButton";
 import MainPicture from "@/components/MainPicture";
 import Title from "@/components/Title";
@@ -14,6 +16,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import {
+  buildStyles,
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
 
 export default function Home() {
   return (
@@ -57,27 +64,24 @@ export default function Home() {
       </Center>
       <Box className="overflow-x-scroll">
         <Box
-          className="flex flex-row justify-between"
-          style={{ width: "200%" }}
+          className="flex flex-row justify-between space-x-10 py-7 "
+          style={{ width: "400%" }}
         >
           {skills.map((skill, index) => (
-            <CircularProgress
-              color={`${skill.color ? skill.color : "blue.400"}`}
+            <CircularProgressbarWithChildren
+              className=""
               key={index}
+              styles={buildStyles({
+                pathColor: skill.color,
+                strokeLinecap: "rounded",
+                pathTransitionDuration: 0.5,
+              })}
               value={skill.value}
-              valueText="Javascript"
-              size="350px"
-              thickness="7px"
-              trackColor={backgroundColor}
             >
-              <CircularProgressLabel
-                w={"75%"}
-                fontSize={"x-large"}
-                whiteSpace={"break-spaces"}
-              >
+              <div className="w-10/12 wtext-wrap text-2xl text-center ">
                 {skill.title}
-              </CircularProgressLabel>
-            </CircularProgress>
+              </div>
+            </CircularProgressbarWithChildren>
           ))}
         </Box>
       </Box>

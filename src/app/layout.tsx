@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Providers from "@/Layouts/Providers";
 import "./globals.css";
 import { Box } from "@chakra-ui/react";
+import "react-circular-progressbar/dist/styles.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
