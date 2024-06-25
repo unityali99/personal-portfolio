@@ -1,26 +1,18 @@
 "use client";
 
+import CircularProgressBar from "@/components/CircularProgressBar";
+import DividedTitle from "@/components/DividedTitle";
 import DownloadButton from "@/components/DownloadButton";
+import GradientProgressBar from "@/components/GradientProgressBar";
+import Icon from "@/components/Icon";
 import MainPicture from "@/components/MainPicture";
 import Title from "@/components/Title";
-import { backgroundColor } from "@/theme";
 import { about } from "@/utils/about";
+import { lang as languages } from "@/utils/lang";
 import { skills } from "@/utils/skills";
-import {
-  Box,
-  Center,
-  CircularProgress,
-  CircularProgressLabel,
-  Flex,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { studies } from "@/utils/studies";
+import { Box, Center, Flex, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
-import {
-  buildStyles,
-  CircularProgressbar,
-  CircularProgressbarWithChildren,
-} from "react-circular-progressbar";
 
 export default function Home() {
   return (
@@ -68,20 +60,44 @@ export default function Home() {
           style={{ width: "400%" }}
         >
           {skills.map((skill, index) => (
-            <CircularProgressbarWithChildren
-              className=""
+            <CircularProgressBar
               key={index}
-              styles={buildStyles({
-                pathColor: skill.color,
-                strokeLinecap: "rounded",
-                pathTransitionDuration: 0.5,
-              })}
-              value={skill.value}
+              progress={skill.value}
+              text={skill.title}
+              color={skill.color}
+            />
+          ))}
+        </Box>
+      </Box>
+      <Box className="flex justify-evenly">
+        <Box className="space-y-8">
+          <DividedTitle title="Language" />
+          {languages.map((obj, index) => (
+            <Flex
+              flexDirection={"column"}
+              className="space-y-2"
+              width={`${obj.progress}%`}
+              key={index}
             >
-              <div className="w-10/12 wtext-wrap text-2xl text-center ">
-                {skill.title}
-              </div>
-            </CircularProgressbarWithChildren>
+              <div className="text-xl">{obj.lang}</div>
+              <div className="self-end text-xs font-light ">{obj.level}</div>
+              <GradientProgressBar />
+            </Flex>
+          ))}
+        </Box>
+        <Box className="space-y-8">
+          <DividedTitle title="Studies" />
+
+          {studies.map((value, index) => (
+            <Flex flexDir={"row"} align={"center"} key={index}>
+              <Icon src="/icons/book-icon.png" />
+              <Box className="mx-5">
+                <div className="text-lg">{value}</div>
+                <div className="text-sm font-sans font-extralight text-slate-400">
+                  Software Engineering
+                </div>
+              </Box>
+            </Flex>
           ))}
         </Box>
       </Box>
