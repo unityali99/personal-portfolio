@@ -4,7 +4,11 @@ import React, { ReactNode } from "react";
 
 function Title({ children }: { children: ReactNode | string }) {
   return (
-    <Text className={`xl:text-8xl ${alex_brush.className}`}>{children}</Text>
+    <Text
+      className={`text-center lg:text-start text-4xl md:text-5xl lg:text-8xl ${alex_brush.className}`}
+    >
+      {children}
+    </Text>
   );
 }
 

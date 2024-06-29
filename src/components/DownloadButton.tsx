@@ -7,9 +7,7 @@ function DownloadButton({ children }: { children: ReactNode | string }) {
     <Box
       as="button"
       color={"white"}
-      py={4}
-      px={16}
-      className="rounded-md mx-auto xl:text-xl bg-gradient-to-b from-cyan-500 from-10% to-90% to-blue-800"
+      className="rounded-md mx-auto xl:text-xl bg-gradient-to-b from-cyan-500 from-10% to-90% to-blue-800 py-3 px-8 md:py-4 md:px-16"
     >
       <Link
         href={

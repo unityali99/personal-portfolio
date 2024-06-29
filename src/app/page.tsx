@@ -9,6 +9,7 @@ import MainPicture from "@/components/MainPicture";
 import Title from "@/components/Title";
 import { about } from "@/utils/about";
 import { lang as languages } from "@/utils/lang";
+import { projects } from "@/utils/projects";
 import { skills } from "@/utils/skills";
 import { studies } from "@/utils/studies";
 import { Box, Center, Flex, Text, VStack } from "@chakra-ui/react";
@@ -17,15 +18,15 @@ import Image from "next/image";
 export default function Home() {
   return (
     <Box>
-      <main className="-z-10 flex flex-row justify-around items-end -translate-y-28">
-        <VStack align={"start"} className="space-y-5">
+      <main className="-z-10 flex flex-col-reverse items-center lg:flex-row justify-around lg:items-end md:-translate-y-28 mb-10 md:mb-0">
+        <VStack align={"start"} className="space-y-5 mt-10 lg:mt-0">
           <Box className="space-y-3">
             <Title>
               {"I'm Ali"}
-              <br />
+              <br className="hidden lg:block" />
               {" Ahmadi"}
             </Title>
-            <Text className="xl:text-2xl font-light">
+            <Text className="text-xs   md:text-xl xl:text-2xl font-light">
               {"Node.js Web Developer - React.js & React Native"}
             </Text>
           </Box>
@@ -34,8 +35,11 @@ export default function Home() {
         <MainPicture src="/me.jpg" />
       </main>
       <hr />
-      <Flex className="my-20 flex-row justify-evenly items-center">
-        <Box className="relative w-2/12" style={{ height: "40rem" }}>
+      <Flex className="my-20 flex-col lg:flex-row justify-evenly items-center space-y-10 lg:space-y-0">
+        <Box
+          className="relative w-9/12 sm;w-6/12 lg:w-3/12 text-center"
+          style={{ height: "40rem" }}
+        >
           <Image
             alt="karate"
             src={"/karate.jpg"}
@@ -45,9 +49,9 @@ export default function Home() {
             className="rounded-lg"
           />
         </Box>
-        <Box className="w-6/12">
+        <Box className="w-full px-10 sm:px-8 lg:w-6/12 space-y-5 lg:space-y-0">
           <Title>About</Title>
-          <Text className="text-justify">{about}</Text>
+          <Text className="text-justify text-xs md:text-base">{about}</Text>
         </Box>
       </Flex>
       <hr />
@@ -55,10 +59,7 @@ export default function Home() {
         <Title>Skills</Title>
       </Center>
       <Box className="overflow-x-scroll">
-        <Box
-          className="flex flex-row justify-between space-x-10 py-7 "
-          style={{ width: "400%" }}
-        >
+        <Box className="flex flex-row justify-between space-x-10 py-7 w-[800%] sm:w-[400%] sm:px-0">
           {skills.map((skill, index) => (
             <CircularProgressBar
               key={index}
@@ -69,7 +70,7 @@ export default function Home() {
           ))}
         </Box>
       </Box>
-      <Box className="flex justify-evenly">
+      <Box className="flex flex-col lg:flex-row justify-between xl:justify-evenly lg:space-x-10 ">
         <Box className="space-y-8">
           <DividedTitle title="Language" />
           {languages.map((obj, index) => (
@@ -79,8 +80,10 @@ export default function Home() {
               width={`${obj.progress}%`}
               key={index}
             >
-              <div className="text-xl">{obj.lang}</div>
-              <div className="self-end text-xs font-light ">{obj.level}</div>
+              <div className="text-sm md:text-base xl:text-xl">{obj.lang}</div>
+              <div className="self-end text-xs md:text-xs font-light ">
+                {obj.level}
+              </div>
               <GradientProgressBar />
             </Flex>
           ))}
@@ -91,15 +94,42 @@ export default function Home() {
           {studies.map((value, index) => (
             <Flex flexDir={"row"} align={"center"} key={index}>
               <Icon src="/icons/book-icon.png" />
-              <Box className="mx-5">
-                <div className="text-lg">{value}</div>
-                <div className="text-sm font-sans font-extralight text-slate-400">
+              <Box className="ml-5">
+                <div className="text-sm md:text-base xl:text-lg">{value}</div>
+                <div className="text-xs xl:text-sm font-sans font-extralight text-slate-400">
                   Software Engineering
                 </div>
               </Box>
             </Flex>
           ))}
         </Box>
+      </Box>
+      <Box className="space-y-20 my-32">
+        <Center>
+          <Title>My Projects</Title>
+        </Center>
+        <Flex flexFlow={"wrap"} justifyContent={"center"} className=" sm:mx-0">
+          {projects.map(({ src, title }, index) => (
+            <Image
+              className="m-2"
+              key={index}
+              src={src}
+              alt={title}
+              width={500}
+              height={500}
+              quality={100}
+            />
+          ))}
+        </Flex>
+      </Box>
+      <Box className="text-center space-y-6 my-20">
+        <Text className="text-2xl md:text-4xl lg:text-5xl">
+          Interested in my work
+        </Text>
+        <Text className="text-xs md:text-sm text-slate-400">
+          Download my CV to know more about me
+        </Text>
+        <DownloadButton>Download CV</DownloadButton>
       </Box>
     </Box>
   );

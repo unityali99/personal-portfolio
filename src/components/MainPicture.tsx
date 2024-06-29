@@ -4,7 +4,10 @@ import React from "react";
 
 function MainPicture({ src }: { src: string }) {
   return (
-    <Box className="relative w-4/12" style={{ height: "40rem" }}>
+    <Box
+      className="relative w-10/12 sm:w-6/12 lg:w-4/12"
+      style={{ height: "40rem" }}
+    >
       <Image
         alt="me"
         src={src}

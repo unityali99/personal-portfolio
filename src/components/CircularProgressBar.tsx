@@ -17,19 +17,19 @@ function CircularProgressBar({
   color: string;
 }) {
   return (
-    <Box className="flex flex-col items-center space-y-8">
+    <Box className="flex flex-col items-center space-y-8 text-center">
       <CircularProgressbarWithChildren
         styles={buildStyles({
           pathColor: color,
           strokeLinecap: "rounded",
           pathTransitionDuration: 0.5,
-          textSize: "13px",
+          textSize: "15px",
           trailColor: "#0000",
         })}
         value={progress}
         text={`${progress}%`}
       />
-      <div className="text-xl">{text}</div>
+      <div className="text-xs md:text-sm lg:text-xl">{text}</div>
     </Box>
   );
 }
