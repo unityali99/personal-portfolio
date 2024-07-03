@@ -1,4 +1,5 @@
-import { ChakraProvider, ColorModeScript, theme } from "@chakra-ui/react";
+import theme from "@/theme";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 
 function Providers({ children }: { children: ReactNode }) {
